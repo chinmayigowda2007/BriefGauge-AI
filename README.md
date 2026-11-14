@@ -20,7 +20,150 @@ Both agents receive the **same evidence**, run against the **same model via Bifr
 * **Response Latency** (20% weight, 20 pts)
 
 ---
+## 1. Problem Statement
 
+Preparing for an important business meeting often requires researching a company's recent developments, leadership changes, product launches, partnerships, opportunities and potential risks.
+
+This research can be time-consuming, and AI-generated summaries may overlook important developments, rely on weak evidence or produce repetitive meeting questions.
+
+Although multiple AI agents can perform the same research task, users often lack a consistent way to compare their performance.
+
+**BriefGauge AI addresses this problem by benchmarking AI agents using the same research evidence, meeting objective and evaluation framework.**
+
+## 2. Proposed Solution
+
+BriefGauge AI uses Tavily to collect recent company information and Bifrost to route AI inference requests.
+
+Two agents independently analyze the same evidence:
+
+- **Agent Alpha: Coverage Researcher**  
+  Focuses on broad company coverage, business developments, product launches, partnerships, growth opportunities and strategic developments.
+
+- **Agent Beta: Critical Analyst**  
+  Focuses on overlooked developments, potential risks, contradictions, weak evidence and unanswered questions.
+
+Both agents generate a pre-meeting briefing and five relevant meeting questions.
+
+The platform then evaluates their outputs using five benchmarking metrics and presents a comparison.
+
+## 3. Key Features
+
+### Dual-Agent Benchmarking
+Runs two specialized AI agents on the same research evidence and meeting objective.
+
+### Tavily-Powered Research
+Retrieves recent company information and filters dated sources according to the meeting's research window.
+
+### Blind Benchmarking
+Allows users to compare agent performance without revealing agent identities until the results are revealed.
+
+### Transparent Scoring
+Evaluates both agents using five measurable benchmarking dimensions.
+
+### Citation Verification
+Checks whether cited URLs correspond to the retrieved research sources.
+
+### Meeting-Ready Briefings
+Generates executive summaries, key developments, evidence-backed insights, limitations and meeting questions.
+
+### Demo Mode
+Allows users to explore the interface and sample benchmarking results without making live AI inference requests.
+
+### Health Monitoring
+Provides information about the configured Tavily and Bifrost connections.
+
+## 4. Benchmarking Methodology
+
+Each agent is evaluated using five metrics.
+
+| Metric | Weight | Purpose |
+|---|---:|---|
+| Source Coverage | 20 | Evaluates research coverage |
+| Citation Coverage | 20 | Evaluates supporting citations |
+| Freshness | 20 | Evaluates the recency of research |
+| Meeting Usefulness | 20 | Evaluates relevance to the meeting objective |
+| Latency | 20 | Evaluates response time |
+
+**Maximum score: 100 points per agent.**
+
+The platform calculates heuristic scores using the available research and generated outputs.
+
+These scores are intended for comparative benchmarking. They do not establish factual accuracy or guarantee that an agent's conclusions are correct.
+
+Token usage is displayed when the inference provider returns usage information.
+
+## 5. System Architecture
+
+```text
+                USER INPUT
+                     |
+        Company / Meeting Date / Purpose
+                     |
+                     v
+              EXPRESS SERVER
+                     |
+                     v
+                TAVILY API
+                     |
+           Recent Company Research
+                     |
+              Shared Evidence
+                /        \
+               /          \
+              v            v
+        AGENT ALPHA    AGENT BETA
+        Researcher     Critical Analyst
+              |            |
+              v            v
+           BIFROST GATEWAY
+              |            |
+              v            v
+           GROQ MODEL / CONFIGURED MODEL
+              |            |
+              v            v
+          BRIEFING       BRIEFING
+              |            |
+              +-----+------+
+                    |
+                    v
+             SCORING ENGINE
+                    |
+                    v
+           BENCHMARK COMPARISON
+                    |
+                    v
+              REACT FRONTEND
+```
+
+### Architecture Components
+
+- **Frontend:** React interfce for input, briefings, scores and comparison.
+- **Backend:** Express server handles requests and coordinates research and inference.
+- **Research:** Tavily retrieves company-related information.
+- **Inference Gateway:** Bifrost routes requests to the configured AI provider.
+- **AI Provider:** Groq is the configured provider in the demonstrated setup.
+- **Scoring Engine:** Calculates comparative benchmarking metrics.
+- **Testing:** Automated tests validate important research, parsing and scoring behaviour.
+
+Both agents receive the same research evidence to make the comparison more consistent.
+
+## 6. Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| React 19 | Frontend interface |
+| TypeScript | Application development |
+| Vite 6 | Frontend development and build |
+| Node.js | JavaScript runtime |
+| Express 4 | Backend API server |
+| Tavily API | Web research |
+| Bifrost | AI inference gateway |
+| Groq | AI model provider |
+| OpenAI-compatible API | Model request format |
+| Lucide React | Interface icons |
+| TSX | TypeScript execution |
+| Node Test Runner | Automated testing |
+---
 ## 🏗️ Tech Stack
 
 * **Frontend**: React 19, TypeScript, Tailwind CSS, Lucide Icons, Vite
