@@ -29,9 +29,9 @@ Both agents receive the **same evidence**, run against the **same model via Bifr
 * **Response Latency** (20% weight, 20 pts)
 
 ---
-## 3. Key Features
+## Key Features
 
-###Dual-Agent Benchmarking
+### Dual-Agent Benchmarking
 Runs two specialized AI agents on the same research evidence and meeting objective.
 
 ### Tavily-Powered Research
@@ -54,28 +54,8 @@ Allows users to explore the interface and sample benchmarking results without ma
 
 ### Health Monitoring
 Provides information about the configured Tavily and Bifrost connections.
-
-## 4. Benchmarking Methodology
-
-Each agent is evaluated using five metrics.
-
-| Metric | Weight | Purpose |
-|---|---:|---|
-| Source Coverage | 20 | Evaluates research coverage |
-| Citation Coverage | 20 | Evaluates supporting citations |
-| Freshness | 20 | Evaluates the recency of research |
-| Meeting Usefulness | 20 | Evaluates relevance to the meeting objective |
-| Latency | 20 | Evaluates response time |
-
-**Maximum score: 100 points per agent.**
-
-The platform calculates heuristic scores using the available research and generated outputs.
-
-These scores are intended for comparative benchmarking. They do not establish factual accuracy or guarantee that an agent's conclusions are correct.
-
-Token usage is displayed when the inference provider returns usage information.
-
-## 5. System Architecture
+---
+## System Architecture
 
 ```text
                 USER INPUT
