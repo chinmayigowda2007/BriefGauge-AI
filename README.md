@@ -4,8 +4,17 @@
 > Evaluates and scores two AI agents preparing pre-meeting company research briefings using real search evidence from Tavily and inference through the Bifrost OpenAI-compatible gateway.
 
 ---
+## Problem Statement
 
-## 🎯 Overview
+Preparing for an important business meeting often requires researching a company's recent developments, leadership changes, product launches, partnerships, opportunities and potential risks.
+
+This research can be time-consuming, and AI-generated summaries may overlook important developments, rely on weak evidence or produce repetitive meeting questions.
+
+Although multiple AI agents can perform the same research task, users often lack a consistent way to compare their performance.
+
+**BriefGauge AI addresses this problem by benchmarking AI agents using the same research evidence, meeting objective and evaluation framework.**
+
+## 🎯 Proposed Solution (Overview)
 
 **BriefGauge AI** benchmarks two specialized AI agent personas that prepare pre-meeting company research briefings:
 
@@ -20,35 +29,9 @@ Both agents receive the **same evidence**, run against the **same model via Bifr
 * **Response Latency** (20% weight, 20 pts)
 
 ---
-## 1. Problem Statement
-
-Preparing for an important business meeting often requires researching a company's recent developments, leadership changes, product launches, partnerships, opportunities and potential risks.
-
-This research can be time-consuming, and AI-generated summaries may overlook important developments, rely on weak evidence or produce repetitive meeting questions.
-
-Although multiple AI agents can perform the same research task, users often lack a consistent way to compare their performance.
-
-**BriefGauge AI addresses this problem by benchmarking AI agents using the same research evidence, meeting objective and evaluation framework.**
-
-## 2. Proposed Solution
-
-BriefGauge AI uses Tavily to collect recent company information and Bifrost to route AI inference requests.
-
-Two agents independently analyze the same evidence:
-
-- **Agent Alpha: Coverage Researcher**  
-  Focuses on broad company coverage, business developments, product launches, partnerships, growth opportunities and strategic developments.
-
-- **Agent Beta: Critical Analyst**  
-  Focuses on overlooked developments, potential risks, contradictions, weak evidence and unanswered questions.
-
-Both agents generate a pre-meeting briefing and five relevant meeting questions.
-
-The platform then evaluates their outputs using five benchmarking metrics and presents a comparison.
-
 ## 3. Key Features
 
-### Dual-Agent Benchmarking
+###Dual-Agent Benchmarking
 Runs two specialized AI agents on the same research evidence and meeting objective.
 
 ### Tavily-Powered Research
@@ -147,22 +130,6 @@ Token usage is displayed when the inference provider returns usage information.
 
 Both agents receive the same research evidence to make the comparison more consistent.
 
-## 6. Technology Stack
-
-| Technology | Purpose |
-|---|---|
-| React 19 | Frontend interface |
-| TypeScript | Application development |
-| Vite 6 | Frontend development and build |
-| Node.js | JavaScript runtime |
-| Express 4 | Backend API server |
-| Tavily API | Web research |
-| Bifrost | AI inference gateway |
-| Groq | AI model provider |
-| OpenAI-compatible API | Model request format |
-| Lucide React | Interface icons |
-| TSX | TypeScript execution |
-| Node Test Runner | Automated testing |
 ---
 ## 🏗️ Tech Stack
 
